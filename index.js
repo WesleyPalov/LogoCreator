@@ -5,7 +5,7 @@ const { default: Choices } = require('inquirer/lib/objects/choices');
 const fs = require('fs');
 const { Console } = require('console');
 // to dounload lib shapes
-const {Circle, Square, Triangle} = require("./lib/shapes");
+const {Circle, Square, Triangle} = require("./lib/shape1");
 
 
 const generateSVG = ({ letters, color, bGround, shape }) =>
@@ -38,7 +38,7 @@ inquirer
     {
         type: "input",
         name: "color", 
-        message: "Please enter the color of your letter", 
+        message: " Please enter the color of your letter", 
     
       },
       {
@@ -54,10 +54,15 @@ inquirer
     type: "checkbox",
     name: "shape", 
     message: "Please select the shape of your logo", 
-    choices: ["circle", "triangle", "square"],
+    choices: ["circle", "Triangle", "Square"],
   },
+
+
+
  
   ])
+
+  
 
   .then((answers) => {
   const SVGContent = generateSVG(answers);
