@@ -1,0 +1,1 @@
+{"letters":"fgh","color":"green","bGround":"white","shape":["square"]}

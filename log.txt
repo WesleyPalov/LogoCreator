@@ -1,1 +1,0 @@
-{"letters":"gtr","color":"green","bGround":"white","shape":["triangle"]}
