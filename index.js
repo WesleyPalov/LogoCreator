@@ -5,18 +5,36 @@ const { default: Choices } = require('inquirer/lib/objects/choices');
 const fs = require('fs');
 const { Console } = require('console');
 // to dounload lib shapes
-const {Circle, Square, Triangle} = require("./lib/shape1");
+const {Circle, Square, Triangle} = require("./lib/shapes");
 
 
-const generateSVG = ({ letters, color, bGround, shape }) =>
-  `<svg version="1.1" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
 
-  <${shape}  cx="150" cy="150" r="100" fill="${bGround}" />
+
+const generateSVG = ({ letters, color, bGround, shape }) => {
+let userShape 
+  switch (shape) {
+    case 'Circle':
+ userShape = new Circle (bGround)
+   
+      break;
+    case 'Square':
+      userShape = new Square (bGround)
+      break;
+    case 'Triangle': 
+    userShape = new Triangle (bGround)
+      break;
+  
+    default:
+      console.log('Check your shape selection!');
+  }
+  return `<svg version="1.1" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+
+${userShape.render()}
 
   <text x="150" y="150" font-size="60" text-anchor="middle" fill="${color}">${letters}</text>
 
 </svg>`;
-
+}
 
 
 inquirer
@@ -51,10 +69,10 @@ inquirer
 
     
       {
-    type: "checkbox",
+    type: "list",
     name: "shape", 
     message: "Please select the shape of your logo", 
-    choices: ["circle", "Triangle", "Square"],
+    choices: ["Circle", "Triangle", "Square"],
   },
 
 
