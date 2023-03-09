@@ -9,7 +9,7 @@ const {Circle, Square, Triangle} = require("./lib/shapes");
 
 
 
-
+//Function to generate svg file based on user choices
 const generateSVG = ({ letters, color, bGround, shape }) => {
 let userShape 
   switch (shape) {
@@ -44,7 +44,7 @@ inquirer
         name: 'letters',
         message: 'Please enter three letters of your logo (Required)',
         validate: lettersInput => {
-      //  console.log(lettersInput.length)
+      //  check the lengh of logo
             if (lettersInput.length == 3) {
                 return true;
             } else {
